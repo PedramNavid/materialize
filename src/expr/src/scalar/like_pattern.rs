@@ -137,6 +137,7 @@ fn build_regex(pattern: &str, case_insensitive: bool, escape: char) -> Result<Re
     }
 
     let mut regex = RegexBuilder::new(&regex);
+    regex.dot_matches_new_line(true);
     regex.case_insensitive(case_insensitive);
     match regex.build() {
         Ok(regex) => Ok(regex),
